@@ -43,4 +43,26 @@ class Queue {
 
 let q = new Queue();
 
-console.log(q.enqueue(20));
+// console.log(q.enqueue(20));
+
+// 击鼓传花游戏: 
+
+function flower(num) {
+  let queue = new Queue();
+
+  for (let i = 0; i < 6; i++) {
+    queue.enqueue(i);  
+  }
+
+  console.log(queue);
+
+  while(queue.size() > 1) {
+    for (let j = 0; j < num - 1; j++) {
+      queue.enqueue(queue.dequeue());
+    }
+    queue.dequeue();
+  }
+  return queue.front();
+}
+
+console.log(flower(1))
