@@ -1,6 +1,6 @@
 // 单向链表
 
-class LinkList {
+class LinkedList {
   static node(el) {
     class Node {  // 链表节点类
       constructor(el) {
@@ -18,7 +18,7 @@ class LinkList {
 
   // 添加节点方法
   append(el) {
-    let newNode = LinkList.node(el)
+    let newNode = LinkedList.node(el)
     // 判断添加的是不是第一个节点
     if (!this.length) {
       this.head = newNode;
@@ -66,7 +66,7 @@ class LinkList {
     // position取值判断
     if (position < 0 || position > this.length) return false;
 
-    let newNode = LinkList.node(el);
+    let newNode = LinkedList.node(el);
     let index = 0; // 指针
     let current = this.head;  // 当前指向
     let previous = null;    // 上一个
@@ -89,6 +89,7 @@ class LinkList {
       index++;
     }
   }
+  
   // get方法: 获取指定位置的值
   get(position) {
     // 判断position是否合法
@@ -189,9 +190,13 @@ class LinkList {
   size() {
     return this.length;
   }
+
+  isEmpty() {
+    return this.length ? false : true;
+  }
 }
 
-let l = new LinkList();
+let l = new LinkedList();
 
 console.log(l.append('a'));
 console.log(l.append('b'));
